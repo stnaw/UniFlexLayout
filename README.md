@@ -242,7 +242,7 @@ UniFlexLayout provides a familiar API for web developers:
 4. Select **Add package from git URL...**
 5. Enter the following URL:
    ```
-   https://github.com/stnaw/UniFlexLayout.git?path=Runtime/
+   https://github.com/stnaw/UniFlexLayout.git?path=Runtime
    ```
 6. Click **Add** and wait for installation to complete
 

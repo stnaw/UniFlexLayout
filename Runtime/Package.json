@@ -1,5 +1,5 @@
 {
-    "name": "com.yourcompany.uniflexlayout",
+    "name": "com.stnaw.uniflexlayout",
     "version": "1.0.0",
     "displayName": "UniFlexLayout",
     "description": "UniFlexLayout provides a nice C# interface to Unity UI Toolkit's flexbox implementation. Concise, intuitive & chainable syntax for Unity developers.",
@@ -11,8 +11,8 @@
         "uitoolkit"
     ],
     "author": {
-        "name": "Your Name",
-        "email": "your.email@example.com"
+        "name": "stnaw",
+        "email": "stnaw@outlook.com"
     },
     "dependencies": {
         "com.unity.modules.uielements": "1.0.0"
