@@ -8,11 +8,11 @@ namespace UniFlexLayout
     /// FlexLayout provides a chainable Flexbox layout API for Unity UI Toolkit
     /// Reference: https://github.com/layoutBox/FlexLayout
     /// </summary>
-    public readonly struct FlexLayout
+    public readonly struct FlexLayout<T> where T : VisualElement
     {
-        private readonly VisualElement _element;
+        private readonly T _element;
 
-        public FlexLayout(VisualElement element)
+        public FlexLayout(T element)
         {
             _element = element ?? throw new ArgumentNullException(nameof(element));
         }
@@ -22,7 +22,7 @@ namespace UniFlexLayout
         /// <summary>
         /// Set the layout direction
         /// </summary>
-        public FlexLayout Direction(FlexDirection direction)
+        public FlexLayout<T> Direction(FlexDirection direction)
         {
             _element.style.flexDirection = direction;
             return this;
@@ -31,7 +31,7 @@ namespace UniFlexLayout
         /// <summary>
         /// Set the wrap mode
         /// </summary>
-        public FlexLayout Wrap(Wrap wrap)
+        public FlexLayout<T> Wrap(Wrap wrap)
         {
             _element.style.flexWrap = wrap;
             return this;
@@ -40,7 +40,7 @@ namespace UniFlexLayout
         /// <summary>
         /// Set the main axis alignment
         /// </summary>
-        public FlexLayout JustifyContent(Justify justify)
+        public FlexLayout<T> JustifyContent(Justify justify)
         {
             _element.style.justifyContent = justify;
             return this;
@@ -49,7 +49,7 @@ namespace UniFlexLayout
         /// <summary>
         /// Set the cross axis alignment
         /// </summary>
-        public FlexLayout AlignItems(Align align)
+        public FlexLayout<T> AlignItems(Align align)
         {
             _element.style.alignItems = align;
             return this;
@@ -58,7 +58,7 @@ namespace UniFlexLayout
         /// <summary>
         /// Set the self alignment
         /// </summary>
-        public FlexLayout AlignSelf(Align align)
+        public FlexLayout<T> AlignSelf(Align align)
         {
             _element.style.alignSelf = align;
             return this;
@@ -67,7 +67,7 @@ namespace UniFlexLayout
         /// <summary>
         /// Set the multiline alignment
         /// </summary>
-        public FlexLayout AlignContent(Align align)
+        public FlexLayout<T> AlignContent(Align align)
         {
             _element.style.alignContent = align;
             return this;
@@ -80,7 +80,7 @@ namespace UniFlexLayout
         /// <summary>
         /// Set the width
         /// </summary>
-        public FlexLayout Width(float value)
+        public FlexLayout<T> Width(float value)
         {
             _element.style.width = value;
             return this;
@@ -89,7 +89,7 @@ namespace UniFlexLayout
         /// <summary>
         /// Set the width (percentage)
         /// </summary>
-        public FlexLayout Width(FPercent percent)
+        public FlexLayout<T> Width(FPercent percent)
         {
             _element.style.width = percent;
             return this;
@@ -98,7 +98,7 @@ namespace UniFlexLayout
         /// <summary>
         /// Set the width (StyleLength)
         /// </summary>
-        public FlexLayout Width(StyleLength length)
+        public FlexLayout<T> Width(StyleLength length)
         {
             _element.style.width = length;
             return this;
@@ -107,7 +107,7 @@ namespace UniFlexLayout
         /// <summary>
         /// Set the height
         /// </summary>
-        public FlexLayout Height(float value)
+        public FlexLayout<T> Height(float value)
         {
             _element.style.height = value;
             return this;
@@ -116,7 +116,7 @@ namespace UniFlexLayout
         /// <summary>
         /// Set the height (percentage)
         /// </summary>
-        public FlexLayout Height(FPercent percent)
+        public FlexLayout<T> Height(FPercent percent)
         {
             _element.style.height = percent;
             return this;
@@ -125,7 +125,7 @@ namespace UniFlexLayout
         /// <summary>
         /// Set the height (StyleLength)
         /// </summary>
-        public FlexLayout Height(StyleLength length)
+        public FlexLayout<T> Height(StyleLength length)
         {
             _element.style.height = length;
             return this;
@@ -134,7 +134,7 @@ namespace UniFlexLayout
         /// <summary>
         /// Set both width and height
         /// </summary>
-        public FlexLayout Size(float value)
+        public FlexLayout<T> Size(float value)
         {
             _element.style.width = value;
             _element.style.height = value;
@@ -144,7 +144,7 @@ namespace UniFlexLayout
         /// <summary>
         /// Set both width and height
         /// </summary>
-        public FlexLayout Size(float width, float height)
+        public FlexLayout<T> Size(float width, float height)
         {
             _element.style.width = width;
             _element.style.height = height;
@@ -154,7 +154,7 @@ namespace UniFlexLayout
         /// <summary>
         /// Set the minimum width
         /// </summary>
-        public FlexLayout MinWidth(float value)
+        public FlexLayout<T> MinWidth(float value)
         {
             _element.style.minWidth = value;
             return this;
@@ -163,7 +163,7 @@ namespace UniFlexLayout
         /// <summary>
         /// Set the minimum height
         /// </summary>
-        public FlexLayout MinHeight(float value)
+        public FlexLayout<T> MinHeight(float value)
         {
             _element.style.minHeight = value;
             return this;
@@ -172,7 +172,7 @@ namespace UniFlexLayout
         /// <summary>
         /// Set the maximum width
         /// </summary>
-        public FlexLayout MaxWidth(float value)
+        public FlexLayout<T> MaxWidth(float value)
         {
             _element.style.maxWidth = value;
             return this;
@@ -181,7 +181,7 @@ namespace UniFlexLayout
         /// <summary>
         /// Set the maximum height
         /// </summary>
-        public FlexLayout MaxHeight(float value)
+        public FlexLayout<T> MaxHeight(float value)
         {
             _element.style.maxHeight = value;
             return this;
@@ -194,7 +194,7 @@ namespace UniFlexLayout
         /// <summary>
         /// Set the flex grow
         /// </summary>
-        public FlexLayout Grow(float value)
+        public FlexLayout<T> Grow(float value)
         {
             _element.style.flexGrow = value;
             return this;
@@ -203,7 +203,7 @@ namespace UniFlexLayout
         /// <summary>
         /// Set the flex shrink
         /// </summary>
-        public FlexLayout Shrink(float value)
+        public FlexLayout<T> Shrink(float value)
         {
             _element.style.flexShrink = value;
             return this;
@@ -212,7 +212,7 @@ namespace UniFlexLayout
         /// <summary>
         /// Set the flex basis
         /// </summary>
-        public FlexLayout Basis(float value)
+        public FlexLayout<T> Basis(float value)
         {
             _element.style.flexBasis = value;
             return this;
@@ -221,7 +221,7 @@ namespace UniFlexLayout
         /// <summary>
         /// Set the flex basis (percentage)
         /// </summary>
-        public FlexLayout Basis(FPercent percent)
+        public FlexLayout<T> Basis(FPercent percent)
         {
             _element.style.flexBasis = percent;
             return this;
@@ -230,7 +230,7 @@ namespace UniFlexLayout
         /// <summary>
         /// Set the flex basis to auto
         /// </summary>
-        public FlexLayout BasisAuto()
+        public FlexLayout<T> BasisAuto()
         {
             _element.style.flexBasis = StyleKeyword.Auto;
             return this;
@@ -243,7 +243,7 @@ namespace UniFlexLayout
         /// <summary>
         /// Set the position type
         /// </summary>
-        public FlexLayout Position(Position position)
+        public FlexLayout<T> Position(Position position)
         {
             _element.style.position = position;
             return this;
@@ -252,7 +252,7 @@ namespace UniFlexLayout
         /// <summary>
         /// Set the left offset
         /// </summary>
-        public FlexLayout Left(float value)
+        public FlexLayout<T> Left(float value)
         {
             _element.style.left = value;
             return this;
@@ -261,7 +261,7 @@ namespace UniFlexLayout
         /// <summary>
         /// Set the top offset
         /// </summary>
-        public FlexLayout Top(float value)
+        public FlexLayout<T> Top(float value)
         {
             _element.style.top = value;
             return this;
@@ -270,7 +270,7 @@ namespace UniFlexLayout
         /// <summary>
         /// Set the right offset
         /// </summary>
-        public FlexLayout Right(float value)
+        public FlexLayout<T> Right(float value)
         {
             _element.style.right = value;
             return this;
@@ -279,7 +279,7 @@ namespace UniFlexLayout
         /// <summary>
         /// Set the bottom offset
         /// </summary>
-        public FlexLayout Bottom(float value)
+        public FlexLayout<T> Bottom(float value)
         {
             _element.style.bottom = value;
             return this;
@@ -292,7 +292,7 @@ namespace UniFlexLayout
         /// <summary>
         /// Set all margins
         /// </summary>
-        public FlexLayout Margin(float value)
+        public FlexLayout<T> Margin(float value)
         {
             _element.style.marginTop = value;
             _element.style.marginRight = value;
@@ -304,7 +304,7 @@ namespace UniFlexLayout
         /// <summary>
         /// Set vertical and horizontal margins
         /// </summary>
-        public FlexLayout Margin(float vertical, float horizontal)
+        public FlexLayout<T> Margin(float vertical, float horizontal)
         {
             _element.style.marginTop = vertical;
             _element.style.marginBottom = vertical;
@@ -316,7 +316,7 @@ namespace UniFlexLayout
         /// <summary>
         /// Set all margins (top, right, bottom, left)
         /// </summary>
-        public FlexLayout Margin(float top, float right, float bottom, float left)
+        public FlexLayout<T> Margin(float top, float right, float bottom, float left)
         {
             _element.style.marginTop = top;
             _element.style.marginRight = right;
@@ -328,7 +328,7 @@ namespace UniFlexLayout
         /// <summary>
         /// Set the top margin
         /// </summary>
-        public FlexLayout MarginTop(float value)
+        public FlexLayout<T> MarginTop(float value)
         {
             _element.style.marginTop = value;
             return this;
@@ -337,7 +337,7 @@ namespace UniFlexLayout
         /// <summary>
         /// Set the top margin (percentage)
         /// </summary>
-        public FlexLayout MarginTop(FPercent percent)
+        public FlexLayout<T> MarginTop(FPercent percent)
         {
             _element.style.marginTop = percent;
             return this;
@@ -346,7 +346,7 @@ namespace UniFlexLayout
         /// <summary>
         /// Set the right margin
         /// </summary>
-        public FlexLayout MarginRight(float value)
+        public FlexLayout<T> MarginRight(float value)
         {
             _element.style.marginRight = value;
             return this;
@@ -355,7 +355,7 @@ namespace UniFlexLayout
         /// <summary>
         /// Set the right margin (percentage)
         /// </summary>
-        public FlexLayout MarginRight(FPercent percent)
+        public FlexLayout<T> MarginRight(FPercent percent)
         {
             _element.style.marginRight = percent;
             return this;
@@ -364,7 +364,7 @@ namespace UniFlexLayout
         /// <summary>
         /// Set the bottom margin
         /// </summary>
-        public FlexLayout MarginBottom(float value)
+        public FlexLayout<T> MarginBottom(float value)
         {
             _element.style.marginBottom = value;
             return this;
@@ -373,7 +373,7 @@ namespace UniFlexLayout
         /// <summary>
         /// Set the bottom margin (percentage)
         /// </summary>
-        public FlexLayout MarginBottom(FPercent percent)
+        public FlexLayout<T> MarginBottom(FPercent percent)
         {
             _element.style.marginBottom = percent;
             return this;
@@ -382,7 +382,7 @@ namespace UniFlexLayout
         /// <summary>
         /// Set the left margin
         /// </summary>
-        public FlexLayout MarginLeft(float value)
+        public FlexLayout<T> MarginLeft(float value)
         {
             _element.style.marginLeft = value;
             return this;
@@ -391,7 +391,7 @@ namespace UniFlexLayout
         /// <summary>
         /// Set the left margin (percentage)
         /// </summary>
-        public FlexLayout MarginLeft(FPercent percent)
+        public FlexLayout<T> MarginLeft(FPercent percent)
         {
             _element.style.marginLeft = percent;
             return this;
@@ -400,7 +400,7 @@ namespace UniFlexLayout
         /// <summary>
         /// Set the horizontal margins
         /// </summary>
-        public FlexLayout MarginHorizontal(float value)
+        public FlexLayout<T> MarginHorizontal(float value)
         {
             _element.style.marginLeft = value;
             _element.style.marginRight = value;
@@ -410,7 +410,7 @@ namespace UniFlexLayout
         /// <summary>
         /// Set the vertical margins
         /// </summary>
-        public FlexLayout MarginVertical(float value)
+        public FlexLayout<T> MarginVertical(float value)
         {
             _element.style.marginTop = value;
             _element.style.marginBottom = value;
@@ -424,7 +424,7 @@ namespace UniFlexLayout
         /// <summary>
         /// Set all paddings
         /// </summary>
-        public FlexLayout Padding(float value)
+        public FlexLayout<T> Padding(float value)
         {
             _element.style.paddingTop = value;
             _element.style.paddingRight = value;
@@ -436,7 +436,7 @@ namespace UniFlexLayout
         /// <summary>
         /// Set vertical and horizontal paddings
         /// </summary>
-        public FlexLayout Padding(float vertical, float horizontal)
+        public FlexLayout<T> Padding(float vertical, float horizontal)
         {
             _element.style.paddingTop = vertical;
             _element.style.paddingBottom = vertical;
@@ -448,7 +448,7 @@ namespace UniFlexLayout
         /// <summary>
         /// Set all paddings (top, right, bottom, left)
         /// </summary>
-        public FlexLayout Padding(float top, float right, float bottom, float left)
+        public FlexLayout<T> Padding(float top, float right, float bottom, float left)
         {
             _element.style.paddingTop = top;
             _element.style.paddingRight = right;
@@ -460,7 +460,7 @@ namespace UniFlexLayout
         /// <summary>
         /// Set the top padding
         /// </summary>
-        public FlexLayout PaddingTop(float value)
+        public FlexLayout<T> PaddingTop(float value)
         {
             _element.style.paddingTop = value;
             return this;
@@ -469,7 +469,7 @@ namespace UniFlexLayout
         /// <summary>
         /// Set the right padding
         /// </summary>
-        public FlexLayout PaddingRight(float value)
+        public FlexLayout<T> PaddingRight(float value)
         {
             _element.style.paddingRight = value;
             return this;
@@ -478,7 +478,7 @@ namespace UniFlexLayout
         /// <summary>
         /// Set the bottom padding
         /// </summary>
-        public FlexLayout PaddingBottom(float value)
+        public FlexLayout<T> PaddingBottom(float value)
         {
             _element.style.paddingBottom = value;
             return this;
@@ -487,7 +487,7 @@ namespace UniFlexLayout
         /// <summary>
         /// Set the left padding
         /// </summary>
-        public FlexLayout PaddingLeft(float value)
+        public FlexLayout<T> PaddingLeft(float value)
         {
             _element.style.paddingLeft = value;
             return this;
@@ -496,7 +496,7 @@ namespace UniFlexLayout
         /// <summary>
         /// Set the horizontal paddings
         /// </summary>
-        public FlexLayout PaddingHorizontal(float value)
+        public FlexLayout<T> PaddingHorizontal(float value)
         {
             _element.style.paddingLeft = value;
             _element.style.paddingRight = value;
@@ -506,7 +506,7 @@ namespace UniFlexLayout
         /// <summary>
         /// Set the vertical paddings
         /// </summary>
-        public FlexLayout PaddingVertical(float value)
+        public FlexLayout<T> PaddingVertical(float value)
         {
             _element.style.paddingTop = value;
             _element.style.paddingBottom = value;
@@ -520,7 +520,7 @@ namespace UniFlexLayout
         /// <summary>
         /// Set the background color
         /// </summary>
-        public FlexLayout BackgroundColor(Color color)
+        public FlexLayout<T> BackgroundColor(Color color)
         {
             _element.style.backgroundColor = color;
             return this;
@@ -529,7 +529,7 @@ namespace UniFlexLayout
         /// <summary>
         /// Set the background image
         /// </summary>
-        public FlexLayout BackgroundImage(Texture2D tex)
+        public FlexLayout<T> BackgroundImage(Texture2D tex)
         {
             _element.style.backgroundImage = Background.FromTexture2D(tex);
             return this;
@@ -538,7 +538,7 @@ namespace UniFlexLayout
         /// <summary>
         /// Set the background image
         /// </summary>
-        public FlexLayout BackgroundImage(RenderTexture rt)
+        public FlexLayout<T> BackgroundImage(RenderTexture rt)
         {
             _element.style.backgroundImage = Background.FromRenderTexture(rt);
             return this;
@@ -547,7 +547,7 @@ namespace UniFlexLayout
         /// <summary>
         /// Set the background image
         /// </summary>
-        public FlexLayout BackgroundImage(VectorImage vi)
+        public FlexLayout<T> BackgroundImage(VectorImage vi)
         {
             _element.style.backgroundImage = Background.FromVectorImage(vi);
             return this;
@@ -556,7 +556,7 @@ namespace UniFlexLayout
         /// <summary>
         /// Set the background image
         /// </summary>
-        public FlexLayout BackgroundImage(Sprite sprite)
+        public FlexLayout<T> BackgroundImage(Sprite sprite)
         {
             _element.style.backgroundImage = Background.FromSprite(sprite);
             return this;
@@ -565,7 +565,7 @@ namespace UniFlexLayout
         /// <summary>
         /// Set the border
         /// </summary>
-        public FlexLayout Border(float width, Color color)
+        public FlexLayout<T> Border(float width, Color color)
         {
             _element.style.borderTopWidth = width;
             _element.style.borderRightWidth = width;
@@ -581,7 +581,7 @@ namespace UniFlexLayout
         /// <summary>
         /// Set the border radius
         /// </summary>
-        public FlexLayout BorderRadius(float radius)
+        public FlexLayout<T> BorderRadius(float radius)
         {
             _element.style.borderTopLeftRadius = radius;
             _element.style.borderTopRightRadius = radius;
@@ -593,7 +593,7 @@ namespace UniFlexLayout
         /// <summary>
         /// Set the opacity
         /// </summary>
-        public FlexLayout Opacity(float opacity)
+        public FlexLayout<T> Opacity(float opacity)
         {
             _element.style.opacity = opacity;
             return this;
@@ -602,7 +602,7 @@ namespace UniFlexLayout
         /// <summary>
         /// Set the visibility
         /// </summary>
-        public FlexLayout Visibility(Visibility visibility)
+        public FlexLayout<T> Visibility(Visibility visibility)
         {
             _element.style.visibility = visibility;
             return this;
@@ -611,7 +611,7 @@ namespace UniFlexLayout
         /// <summary>
         /// Set the display type
         /// </summary>
-        public FlexLayout Display(DisplayStyle display)
+        public FlexLayout<T> Display(DisplayStyle display)
         {
             _element.style.display = display;
             return this;
@@ -620,7 +620,7 @@ namespace UniFlexLayout
         /// <summary>
         /// Set the overflow handling
         /// </summary>
-        public FlexLayout Overflow(Overflow overflow)
+        public FlexLayout<T> Overflow(Overflow overflow)
         {
             _element.style.overflow = overflow;
             return this;
@@ -631,19 +631,18 @@ namespace UniFlexLayout
         #region 8. Child Management
 
         /// <summary>
-        /// Add a child element (returns child's FlexLayout for chaining on child)
+        /// Add a child element 
         /// </summary>
-        public FlexLayout AddItem(VisualElement child)
+        public FlexLayout<T> AddElement(T child)
         {
             _element.Add(child);
             return child.Flex();
         }
 
         /// <summary>
-        /// Add a child element (no parameter version, returns child's FlexLayout)
-        /// Similar to FlexLayout's addItem() method
+        /// Add a child element
         /// </summary>
-        public FlexLayout AddItem()
+        public FlexLayout<VisualElement> AddElement()
         {
             var child = new VisualElement();
             _element.Add(child);
@@ -653,7 +652,7 @@ namespace UniFlexLayout
         /// <summary>
         /// Add a child element of specified type (returns child's FlexLayout)
         /// </summary>
-        public FlexLayout AddItem<T>() where T : VisualElement, new()
+        public FlexLayout<T> AddElement<T>() where T : VisualElement, new()
         {
             var child = new T();
             _element.Add(child);
@@ -661,10 +660,9 @@ namespace UniFlexLayout
         }
 
         /// <summary>
-        /// Define child elements layout
-        /// Note: This method is used to define multiple children in a container, use AddItem methods in the define callback
+        /// Define elements layout
         /// </summary>
-        public FlexLayout Define(Action<FlexLayout> configure)
+        public FlexLayout<T> Define(Action<FlexLayout<T>> configure)
         {
             configure(this);
             return this;
@@ -675,14 +673,14 @@ namespace UniFlexLayout
         #region 9. Utility Methods
 
         /// <summary>
-        /// Get the underlying VisualElement
+        /// Get the underlying Element
         /// </summary>
-        public VisualElement Element => _element;
+        public T Element => _element;
 
         /// <summary>
         /// Conditional execution
         /// </summary>
-        public FlexLayout If(bool condition, Action<FlexLayout> configure)
+        public FlexLayout<T> If(bool condition, Action<FlexLayout<T>> configure)
         {
             if (condition)
             {
@@ -694,7 +692,7 @@ namespace UniFlexLayout
         /// <summary>
         /// Add a style class
         /// </summary>
-        public FlexLayout AddClass(string className)
+        public FlexLayout<T> AddClass(string className)
         {
             _element.AddToClassList(className);
             return this;
@@ -703,7 +701,7 @@ namespace UniFlexLayout
         /// <summary>
         /// Remove a style class
         /// </summary>
-        public FlexLayout RemoveClass(string className)
+        public FlexLayout<T> RemoveClass(string className)
         {
             _element.RemoveFromClassList(className);
             return this;
@@ -712,7 +710,7 @@ namespace UniFlexLayout
         /// <summary>
         /// Set the name
         /// </summary>
-        public FlexLayout Name(string name)
+        public FlexLayout<T> Name(string name)
         {
             _element.name = name;
             return this;

@@ -7,12 +7,9 @@ namespace UniFlexLayout
     /// </summary>
     public static class VisualElementFlexExtensions
     {
-        /// <summary>
-        /// Get FlexLayout instance
-        /// </summary>
-        public static FlexLayout Flex(this VisualElement element)
+        public static FlexLayout<T> Flex<T>(this T element) where T : VisualElement
         {
-            return new FlexLayout(element);
+            return new FlexLayout<T>(element);
         }
     }
 }

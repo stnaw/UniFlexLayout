@@ -1,6 +1,6 @@
 {
     "name": "com.stnaw.uniflexlayout",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "displayName": "UniFlexLayout",
     "description": "UniFlexLayout provides a nice C# interface to Unity UI Toolkit's flexbox implementation. Concise, intuitive & chainable syntax for Unity developers.",
     "unity": "2021.3",
